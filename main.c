@@ -133,6 +133,22 @@ int	main(int argc, char *argv[])
 	printf("%s", test15);
 	printf("\n\n");
 
+	//STRLCAT
+	char	test16[] = "some string";
+	char	test17[20] = "here is ";;
+	char	test18[] = "some string";
+	char	test19[20] = "here is ";;
+	printf("___\nSTRLCAT test:\n");
+	printf("My solution:\n");
+	printf("%s\n", test16);
+	printf("%li\n", ft_strlcat(test17, test16, 15));
+	printf("%s", test17);
+	printf("\n\n");
+	printf("Standart library:\n");
+	printf("%s\n", test18);
+	printf("%li\n", strlcat(test19, test18, 15));
+	printf("%s", test19);
+	printf("\n\n");
 
 	//ATOI
 
