@@ -76,9 +76,9 @@ int	main(int argc, char *argv[])
 	//MEMCPY
 
 	char	test4[] = "some string";
-	char	test6[4];
+	char	test6[11];
 	char	test5[] = "some string";
-	char	test7[4];
+	char	test7[11];
 	printf("___\nMEMCPY test2:\n");
 	printf("My solution:\n");
 	printf("%s - ", test4);
