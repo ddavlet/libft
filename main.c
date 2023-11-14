@@ -3,10 +3,16 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <bsd/string.h>
+
 
 int	main(int argc, char *argv[])
 {
-	(void)argc;
+	if (argc < 2)
+	{
+		printf ("At least 1 parameter needed");
+		return (0);
+	}
 	printf("___\nISALPHA test:\n");
 	printf("My solution:\n%i\n", ft_isalpha(*argv[1]));
 	printf("Standart library:\n%i\n\n", isalpha(*argv[1]));
@@ -16,11 +22,11 @@ int	main(int argc, char *argv[])
 	printf("Standart library:\n%i\n\n", isdigit(*argv[1]));
 
 	printf("___\nISALNUM test:\n");
-	printf("___\nMy solution:\n%i\n", ft_isalnum(*argv[1]));
+	printf("My solution:\n%i\n", ft_isalnum(*argv[1]));
 	printf("Standart library:\n%i\n\n", isalnum(*argv[1]));
 
 	printf("___\nISASCII test:\n");
-	printf("___\nMy solution:\n%i\n", ft_isascii(*argv[1]));
+	printf("My solution:\n%i\n", ft_isascii(*argv[1]));
 	printf("Standart library:\n%i\n\n", isascii(*argv[1]));
 
 	printf("___\nISPRINT test:\n");
@@ -55,7 +61,7 @@ int	main(int argc, char *argv[])
 	//BZERO
 	char	test2[] = "some string";
 	char	test3[] = "some string";
-	printf("___\nBZERO test2:\n");
+	printf("___\nBZERO test:\n");
 	printf("My solution:\n");
 	printf("Before change:\n");
 	printf("%s ", test2);
@@ -79,7 +85,7 @@ int	main(int argc, char *argv[])
 	char	test6[11];
 	char	test5[] = "some string";
 	char	test7[11];
-	printf("___\nMEMCPY test2:\n");
+	printf("___\nMEMCPY test:\n");
 	printf("My solution:\n");
 	printf("%s - ", test4);
 	ft_memcpy(test6, test4, 11);
@@ -91,7 +97,41 @@ int	main(int argc, char *argv[])
 	printf("%s", test7);
 	printf("\n\n");
 
+	//MEMMOVE
 
+	char	test8[] = "some string";
+	char	test9[11];
+	char	test10[] = "some string";
+	char	test11[11];
+	printf("___\nMEMMOVE test:\n");
+	printf("My solution:\n");
+	printf("%s - ", test8);
+	ft_memmove(test9, test8, 11);
+	printf("%s", test9);
+	printf("\n\n");
+	printf("Standart library:\n");
+	printf("%s - ", test10);
+	memmove(test11, test10, 11);
+	printf("%s", test11);
+	printf("\n\n");
+
+	//STRLCPY
+
+	char	test12[] = "some string";
+	char	test13[11];
+	char	test14[] = "some string";
+	char	test15[11];
+	printf("___\nSTRLCPY test:\n");
+	printf("My solution:\n");
+	printf("%s\n", test12);
+	printf("%li\n", ft_strlcpy(test13, test12, 4));
+	printf("%s", test13);
+	printf("\n\n");
+	printf("Standart library:\n");
+	printf("%s\n", test14);
+	printf("%li\n", strlcpy(test15, test14, 4));
+	printf("%s", test15);
+	printf("\n\n");
 
 
 	//ATOI

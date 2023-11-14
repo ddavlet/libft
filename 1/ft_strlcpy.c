@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 17:02:00 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/14 15:15:27 by ddavlety         ###   ########.fr       */
+/*   Created: 2023/11/14 15:16:29 by ddavlety          #+#    #+#             */
+/*   Updated: 2023/11/14 16:01:26 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	unsigned char	*ptr_dest;
-	unsigned char	*ptr_src;
-	size_t			i;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
-	i = 0;
-	ptr_dest = (unsigned char *)dest;
-	ptr_src = (unsigned char *)src;
-	while (i < n)
+	i = ft_strlen(dst);
+	// k = ft_strlen(src);
+	k = 0;
+	while (src[k])
 	{
-		ptr_dest[i] = ptr_src[i];
-		i++;
+		k++;
 	}
-	return (dest);
+	j = 0;
+	while (size > 0 && (i - 1) > j)
+	{
+		*dst++ = *src++;
+		j++;
+		size--;
+	}
+	*dst = '\0';
+	return (k);
 }

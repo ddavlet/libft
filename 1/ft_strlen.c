@@ -6,13 +6,13 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:35:59 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/13 17:03:01 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/14 15:30:18 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned long	ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	int	count;
 
