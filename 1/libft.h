@@ -14,6 +14,8 @@
 # define LIBFT_H
 
 # include <unistd.h>
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
 
 int			ft_isalpha(int c);
 
