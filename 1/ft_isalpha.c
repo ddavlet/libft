@@ -6,24 +6,24 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 10:45:26 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/13 17:02:35 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:41:19 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_islower(int c)
+static int	ft_islower(int c)
 {
-	if (c >= 97 && c <= 122)
-		return (c);
+	if (c >= 'a' && c <= 'z')
+		return (1);
 	else
 		return (0);
 }
 
-int	ft_isupper(int c)
+static int	ft_isupper(int c)
 {
-	if (c >= 65 && c <= 90)
-		return (c);
+	if (c >= 'A' && c <= 'Z')
+		return (1);
 	else
 		return (0);
 }

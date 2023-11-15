@@ -6,13 +6,13 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 10:47:21 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/13 17:02:36 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:46:57 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace(int c)
+static int	ft_isspace(int c)
 {
 	if ((c >= '\t' && c <= '\r') || c == ' ')
 		return (1);
@@ -20,15 +20,17 @@ int	ft_isspace(int c)
 		return (0);
 }
 
-int	check_beyond_int(int nbr, char n, int sign)
+static int	check_beyond_int(int nbr, char n, int sign)
 {
 	if (sign == 1)
-		if (nbr > INT_MAX / 10 || (nbr == INT_MAX / 10 && n - '0' > INT_MAX % 10))
-			return (1);
+		if (nbr > INT_MAX / 10
+			|| (nbr == INT_MAX / 10 && n - '0' > INT_MAX % 10))
+			return (INT_MAX);
 	if (sign == -1)
-		if (nbr > -(INT_MIN / 10) || (nbr ==  -(INT_MIN / 10) && n - '0' > INT_MIN % 10))
-			return (2);
-	return(0);
+		if (nbr > -(INT_MIN / 10)
+			|| (nbr == -(INT_MIN / 10) && n - '0' > INT_MIN % 10))
+			return (INT_MIN);
+	return (0);
 }
 
 int	ft_atoi(const char *nptr)
@@ -51,10 +53,8 @@ int	ft_atoi(const char *nptr)
 		nptr++;
 	while (ft_isdigit(*nptr))
 	{
-		if (check_beyond_int(nbr, *nptr, sign) == 1)
-			return (INT_MAX);
-		else if (check_beyond_int(nbr, *nptr, sign) == 2)
-			return (INT_MIN);
+		if (check_beyond_int(nbr, *nptr, sign) != 0)
+			return (check_beyond_int(nbr, *nptr, sign));
 		nbr = nbr * 10 + (int)(*nptr - '0');
 		nptr++;
 	}

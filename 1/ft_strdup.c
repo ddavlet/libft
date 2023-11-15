@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_stdrup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 19:15:31 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/15 10:11:35 by ddavlety         ###   ########.fr       */
+/*   Created: 2023/11/15 16:31:10 by ddavlety          #+#    #+#             */
+/*   Updated: 2023/11/15 16:35:38 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	*strdup(const char *s)
 {
 	size_t	i;
+	char	*ptr;
 
-	i = 0;
-	while (*dst)
-	{
-		dst++;
-		i++;
-	}
-	while ((size - 1) > i && *src)
-	{
-		*dst++ = *src++;
-		i++;
-	}
-	while (*src)
-	{
-		i++;
-		src++;
-	}
-	*dst = '\0';
-	return (i);
+	i = ft_strlen(s);
+	ptr = (char *)malloc((i +1) * sizeof(char));
+	if (!ptr)
+		return (0);
+	return (ptr);
 }

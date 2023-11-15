@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 19:15:31 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/15 10:11:35 by ddavlety         ###   ########.fr       */
+/*   Created: 2023/11/15 10:12:04 by ddavlety          #+#    #+#             */
+/*   Updated: 2023/11/15 16:41:36 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+static int	ft_islower(int c)
 {
-	size_t	i;
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	else
+		return (0);
+}
 
-	i = 0;
-	while (*dst)
-	{
-		dst++;
-		i++;
-	}
-	while ((size - 1) > i && *src)
-	{
-		*dst++ = *src++;
-		i++;
-	}
-	while (*src)
-	{
-		i++;
-		src++;
-	}
-	*dst = '\0';
-	return (i);
+int	ft_toupper(int c)
+{
+	if (ft_islower(c) == 1)
+		return (c - 32);
+	else
+		return (c);
 }

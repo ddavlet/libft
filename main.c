@@ -8,31 +8,38 @@
 
 int	main(int argc, char *argv[])
 {
-	if (argc < 2)
+	if (argc < 3)
 	{
-		printf ("At least 1 parameter needed");
+		printf ("At least 3 parameter needed");
 		return (0);
 	}
+
+	//ISALPHA
 	printf("___\nISALPHA test:\n");
 	printf("My solution:\n%i\n", ft_isalpha(*argv[1]));
 	printf("Standart library:\n%i\n\n", isalpha(*argv[1]));
 
+	//ISDIGIT
 	printf("___\nISDIGIT test:\n");
 	printf("My solution:\n%i\n", ft_isdigit(*argv[1]));
 	printf("Standart library:\n%i\n\n", isdigit(*argv[1]));
 
+	//ISALNUM
 	printf("___\nISALNUM test:\n");
 	printf("My solution:\n%i\n", ft_isalnum(*argv[1]));
 	printf("Standart library:\n%i\n\n", isalnum(*argv[1]));
 
+	//ISASCII
 	printf("___\nISASCII test:\n");
 	printf("My solution:\n%i\n", ft_isascii(*argv[1]));
 	printf("Standart library:\n%i\n\n", isascii(*argv[1]));
 
+	//ISPRINT
 	printf("___\nISPRINT test:\n");
 	printf("My solution:\n%i\n", ft_isprint(*argv[1]));
 	printf("Standart library:\n%i\n\n", isprint(*argv[1]));
 
+	//STRLEN
 	printf("___\nSTRLEN test:\n");
 	printf("My solution:\n%lu\n", ft_strlen(argv[1]));
 	printf("Standart library:\n%lu\n\n", strlen(argv[1]));
@@ -150,8 +157,47 @@ int	main(int argc, char *argv[])
 	printf("%s", test19);
 	printf("\n\n");
 
-	//ATOI
+	//TOUPPER
+	printf("___\nTOUPPER test:\n");
+	printf("My solution:\n%c\n", ft_toupper(*argv[1]));
+	printf("Standart library:\n%c\n\n", toupper(*argv[1]));
 
+	//TOLOWER
+	printf("___\nTOLOWER test:\n");
+	printf("My solution:\n%c\n", ft_tolower(*argv[1]));
+	printf("Standart library:\n%c\n\n", tolower(*argv[1]));
+
+	//STRCHR
+	printf("___\nSTRCHR test:\n");
+	printf("My solution:\n%s\n", ft_strchr(argv[1], *argv[2]));
+	printf("Standart library:\n%s\n\n", strchr(argv[1], *argv[2]));
+
+	//STRRCHR
+	printf("___\nSTRRCHR test:\n");
+	printf("My solution:\n%s\n", ft_strrchr(argv[1], *argv[2]));
+	printf("Standart library:\n%s\n\n", strrchr(argv[1], *argv[2]));
+
+	//STRNCMP
+	printf("___\nSTRNCMP test:\n");
+	printf("My solution:\n%d\n", ft_strncmp(argv[1], argv[2], 3));
+	printf("Standart library:\n%d\n\n", strncmp(argv[1], argv[2], 3));
+
+	//MEMCHR
+	printf("___\nMEMCHR test:\n");
+	printf("My solution:\n%s\n", (unsigned char *)ft_memchr(argv[1], *argv[2], 3));
+	printf("Standart library:\n%s\n\n", (unsigned char *)memchr(argv[1], *argv[2], 3));
+
+	//MEMCMP
+	printf("___\nMEMCMP test:\n");
+	printf("My solution:\n%s\n", (unsigned char *)ft_memchr(argv[1], *argv[2], 3));
+	printf("Standart library:\n%s\n\n", (unsigned char *)memchr(argv[1], *argv[2], 3));
+
+	//STRNSTR
+	printf("___\nMEMCMP test:\n");
+	printf("My solution:\n%i\n", ft_memcmp(argv[1], argv[2], 3));
+	printf("Standart library:\n%i\n\n", memcmp(argv[1], argv[2], 3));
+
+	//ATOI
 	printf("___\nATOI test:\n");
 	printf("My solution:\n%i\n", ft_atoi(argv[1]));
 	printf("Standart library:\n%i\n\n", atoi(argv[1]));
