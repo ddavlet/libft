@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <bsd/string.h>
+// #include <bsd/string.h>
 
 
 int	main(int argc, char *argv[])
@@ -36,8 +36,8 @@ int	main(int argc, char *argv[])
 
 	//ISPRINT
 	printf("___\nISPRINT test:\n");
-	printf("My solution:\n%i\n", ft_isprint(*argv[1]));
-	printf("Standart library:\n%i\n\n", isprint(*argv[1]));
+	printf("My solution:\n%i\n", ft_isprint(288));
+	printf("Standart library:\n%i\n\n", isprint(288));
 
 	//STRLEN
 	printf("___\nSTRLEN test:\n");
@@ -113,14 +113,16 @@ int	main(int argc, char *argv[])
 	printf("___\nMEMMOVE test:\n");
 	printf("My solution:\n");
 	printf("%s - ", test8);
-	ft_memmove(test9, test8, 11);
+	ft_memmove(test9, test8, 5);
 	printf("%s", test9);
 	printf("\n\n");
 	printf("Standart library:\n");
 	printf("%s - ", test10);
-	memmove(test11, test10, 11);
+	memmove(test11, test10, 5);
 	printf("%s", test11);
 	printf("\n\n");
+
+
 
 	//STRLCPY
 
@@ -141,19 +143,19 @@ int	main(int argc, char *argv[])
 	printf("\n\n");
 
 	//STRLCAT
-	char	test16[] = "some string";
-	char	test17[20] = "here is ";;
-	char	test18[] = "some string";
-	char	test19[20] = "here is ";;
+	char	test16[] = "slorem ipsum dolor sit amet";
+	char	test17[10] = "aaaaaaaaaa";
+	char	test18[] = "lorem ipsum dolor sit amet";
+	char	test19[10] = "aaaaaaaaaa";
 	printf("___\nSTRLCAT test:\n");
 	printf("My solution:\n");
 	printf("%s\n", test16);
-	printf("%li\n", ft_strlcat(test17, test16, 15));
+	printf("%li\n", ft_strlcat(test17, test16, 0));
 	printf("%s", test17);
 	printf("\n\n");
 	printf("Standart library:\n");
 	printf("%s\n", test18);
-	printf("%li\n", strlcat(test19, test18, 15));
+	printf("%li\n", strlcat(test19, test18, 0));
 	printf("%s", test19);
 	printf("\n\n");
 
@@ -179,8 +181,8 @@ int	main(int argc, char *argv[])
 
 	//STRNCMP
 	printf("___\nSTRNCMP test:\n");
-	printf("My solution:\n%d\n", ft_strncmp(argv[1], argv[2], 3));
-	printf("Standart library:\n%d\n\n", strncmp(argv[1], argv[2], 3));
+	printf("My solution:\n%d\n", ft_strncmp("test\200", "test\0", 6));
+	printf("Standart library:\n%d\n\n", strncmp("test\200", "test\0", 6));
 
 	//MEMCHR
 	printf("___\nMEMCHR test:\n");
@@ -189,13 +191,15 @@ int	main(int argc, char *argv[])
 
 	//MEMCMP
 	printf("___\nMEMCMP test:\n");
-	printf("My solution:\n%s\n", (unsigned char *)ft_memchr(argv[1], *argv[2], 3));
-	printf("Standart library:\n%s\n\n", (unsigned char *)memchr(argv[1], *argv[2], 3));
+	printf("My solution:\n%i\n", ft_memcmp("abcdefghij", "abcdefgxyz", 7));
+	printf("Standart library:\n%i\n\n", memcmp("abcdefghij", "abcdefgxyz", 7));
 
 	//STRNSTR
-	printf("___\nMEMCMP test:\n");
-	printf("My solution:\n%i\n", ft_memcmp(argv[1], argv[2], 3));
-	printf("Standart library:\n%i\n\n", memcmp(argv[1], argv[2], 3));
+	printf("___\nSTRNSTR test:\n");
+	// printf("My solution:\n%s\n", ft_strnstr("lorem ipsum dolor sit amet", "ipsum", 15));
+	// printf("Standart library:\n%s\n\n", strnstr("lorem ipsum dolor sit amet", "ipsum", 15));
+	printf("My solution:\n%s\n", ft_strnstr("lorem ipsum dolor sit amet", "dolor", 15));
+	printf("Standart library:\n%s\n\n", strnstr("lorem ipsum dolor sit amet", "dolor", 15));
 
 	//ATOI
 	printf("___\nATOI test:\n");

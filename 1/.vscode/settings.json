@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
 	"files.associations": {
 		"__stddef_max_align_t.h": "c"
 	}
+=======
+	"C_Cpp.errorSquiggles": "disabled"
+>>>>>>> 1e3dcc8 (edits)
 }
