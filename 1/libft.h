@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:27:43 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/15 16:40:12 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/17 13:59:23 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 # define LIBFT_H
 
 # include <unistd.h>
-# define INT_MAX 2147483647
-# define INT_MIN -2147483648
 
-// int		ft_islower(int c);
+# include <stdlib.h>
 
-// int		ft_isupper(int c);
+# include <limits.h>
 
 int		ft_isalpha(int c);
 
