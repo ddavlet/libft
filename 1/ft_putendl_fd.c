@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 18:06:29 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/17 18:08:03 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/18 13:52:52 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_putendl_fd(char *s, int fd)
 {
 	write(fd, s, ft_strlen(s));
-	write(fd, '\n', 1);
+	write(fd, "\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:40:55 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/17 17:48:22 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/18 13:52:14 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	while (s[i])
 	{
-		ptr[i] = f(i, s);
+		ptr[i] = f(i, s[i]);
 		i++;
 	}
 	ptr[i] = '\0';
+	return (ptr);
 }

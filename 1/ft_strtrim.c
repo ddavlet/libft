@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:54:44 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/17 13:56:55 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/19 14:30:43 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	ft_check(char const ch, char const *set)
 
 static unsigned int	ft_index_base(char const *s1, char const *set)
 {
-	unsigned long	i;
+	unsigned int	i;
 
 	i = 0;
 	while (s1[i])
@@ -41,7 +41,7 @@ static unsigned int	ft_index_base(char const *s1, char const *set)
 
 static unsigned int	ft_index_end(char const *s1, char const *set)
 {
-	unsigned long	j;
+	unsigned int	j;
 
 	j = ft_strlen(s1) - 1;
 	while (j >= 0)
@@ -58,9 +58,9 @@ static unsigned int	ft_index_end(char const *s1, char const *set)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char			*ptr;
-	unsigned long	i;
-	unsigned long	j;
-	unsigned long	k;
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	k;
 
 	i = ft_index_base(s1, set);
 	j = ft_index_end(s1, set);
@@ -72,4 +72,5 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ptr = ft_substr(s1, i, k);
 	if (!ptr)
 		return (0);
+	return (ptr);
 }

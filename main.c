@@ -178,6 +178,8 @@ int	main(int argc, char *argv[])
 	printf("___\nSTRRCHR test:\n");
 	printf("My solution:\n%s\n", ft_strrchr(argv[1], *argv[2]));
 	printf("Standart library:\n%s\n\n", strrchr(argv[1], *argv[2]));
+	printf("My solution:\n%s\n", ft_strrchr("123456789", 'a'));
+	printf("Standart library:\n%s\n\n", strrchr("123456789", 'a'));
 
 	//STRNCMP
 	printf("___\nSTRNCMP test:\n");
@@ -205,6 +207,31 @@ int	main(int argc, char *argv[])
 	printf("___\nATOI test:\n");
 	printf("My solution:\n%i\n", ft_atoi(argv[1]));
 	printf("Standart library:\n%i\n\n", atoi(argv[1]));
+
+	//STRJOIN
+	printf("___\nSTRJOIN test:\n");
+	printf("My solution:\n%s\n", ft_strjoin("lorem ipsum", "dolor sit amet"));
+
+	//SPLIT
+	printf("___\nSTRJOIN test:\n");
+	char **ptr;
+	ptr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. ", ' ');
+	while (*ptr)
+		printf("%s\n", *ptr++);
+
+	//ITOA
+	printf("___\nITOA test:\n");
+	printf("%s\n\n", ft_itoa(ft_atoi(argv[1])));
+
+	//SUBSTR
+	printf("___\nSUBSTR test:\n");
+	printf("%s\n\n", ft_substr("", 1, 1));
+
+	//TRIM
+	printf("___\nTRIM test:\n");
+	printf("%s\n\n", ft_strtrim("", ""));
+
+
 
 	return(0);
 }
