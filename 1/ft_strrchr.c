@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:27:32 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/19 15:09:16 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/19 17:21:39 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,19 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*ptr;
+	char	ch;
+	unsigned int	i;
 
-	ptr = 0;
-	while (*s)
+	ch = (char)c;
+	ptr = NULL;
+	i = 0;
+	while (s[i])
 	{
-		if (*s == (char)c)
-			ptr = (char *)s;
-		s++;
+		if (s[i] == ch)
+			ptr = (char *)&s[i];
+		i++;
 	}
-	if (*s == (char)c)
-		ptr = (char *)s;
+	if (s[i] == ch)
+		ptr = (char *)&s[i];
 	return (ptr);
 }
