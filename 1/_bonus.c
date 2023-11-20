@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:41:28 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/19 18:33:12 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/20 00:46:08 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_list *ft_lstnew(void *content)
 		return (NULL);
 	list->content = content;
 	list->next = NULL;
+	return (list);
 }
 
 void ft_lstadd_front(t_list **lst, t_list *new)
