@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:10:26 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/20 11:18:06 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/20 11:52:53 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_lstsize(t_list *lst)
 
 	i = 0;
 	tmp = lst;
-	while (tmp->next != NULL)
+	while (tmp != NULL)
 	{
 		tmp = tmp->next;
 		i++;

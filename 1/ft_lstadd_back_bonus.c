@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:12:19 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/20 10:12:28 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/20 11:41:36 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;
 
-	last = ft_lstlast(lst);
+	last = ft_lstlast(*lst);
 	last->next = new;
 }
