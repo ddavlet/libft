@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:27:43 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/20 11:44:15 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:00:41 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # include <limits.h>
 
-typedef struct		s_linst
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -111,6 +111,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 t_list	*ft_lstnew(void *content);
 
-int	ft_lstsize(t_list *lst);
+int		ft_lstsize(t_list *lst);
 
 #endif

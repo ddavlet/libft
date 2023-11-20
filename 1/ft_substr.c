@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 13:30:24 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/19 13:34:18 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:14:25 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		*ptr = '\0';
 		return (ptr);
 	}
-	if (ft_strlen(s) < len)
-		len = ft_strlen(s);
+	if (ft_strlen(s + start) < len)
+		len = ft_strlen(s + start);
 	ptr = (char *)malloc((len + 1) * sizeof(char));
 	if (!ptr)
 		return (0);

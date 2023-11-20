@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:54:44 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/19 14:30:43 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:08:52 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,11 @@ static unsigned int	ft_index_end(char const *s1, char const *set)
 {
 	unsigned int	j;
 
-	j = ft_strlen(s1) - 1;
-	while (j >= 0)
+	j = ft_strlen(s1);
+	if (j == 0)
+		return (0);
+	j--;
+	while (j > 0)
 	{
 		if (ft_check(s1[j], set))
 			;

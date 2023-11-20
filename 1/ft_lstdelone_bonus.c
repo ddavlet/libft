@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:12:50 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/20 11:18:17 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/20 12:43:25 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	del(lst);
+	del(lst->content);
 	free(lst);
 }

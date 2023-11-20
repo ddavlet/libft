@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:24:05 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/20 11:18:35 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:00:48 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	{
 		ft_lstadd_back(&new_lst, ft_lstnew(f(tmp->content)));
 		if (!ft_lstlast(new_lst))
-			ft_lstdelone(ft_lstlast(new_lst), del);
+			ft_lstclear(&new_lst, del);
 		tmp = tmp->next;
 	}
 	return (new_lst);

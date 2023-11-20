@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:23:09 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/20 11:41:02 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:52:53 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	unsigned int	i;
+	t_list	*ptr;
 
-	i = 0;
-	while (lst[i] != NULL)
+	while (*lst)
 	{
-		ft_lstdelone(lst[i], del);
-		i++;
+		ptr = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = ptr;
 	}
+	free(*lst);
 	*lst = NULL;
 }

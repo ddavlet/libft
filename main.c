@@ -1,52 +1,131 @@
 #include "./1/libft.h"
+
 #include <stdio.h>
+
 #include <stdlib.h>
+
 #include <string.h>
+
 #include <ctype.h>
-// #include <bsd/string.h>
 
+#include <bsd/string.h>
 
-int	main(int argc, char *argv[])
+void *mapFunction(void *content)
+{
+	int *original = (int *)content;
+	int *mapped = malloc(sizeof(int));
+	if (mapped)
+	{
+		*mapped = (*original) + 1; // Double the value
+	}
+	return mapped;
+}
+
+// Function to delete an element's content
+void deleteFunction(void *content)
+{
+	free(content);
+}
+
+// Function to print the result of a test
+void printResult(const char *functionName, int result)
+{
+	printf("%s: %s\n", functionName, result ? "PASS" : "FAIL");
+}
+
+void printList(t_list *head)
+{
+	while (head != NULL)
+	{
+		printf("%s -> ", (char *)head->content);
+		head = head->next;
+	}
+	printf("NULL\n");
+}
+
+char simpleMappingFunction(unsigned int index, char c)
+{
+	return c + index;
+}
+
+void simpleIterationFunction(unsigned int index, char *c)
+{
+	(*c) = (*c) + index;
+}
+
+void test_calloc(size_t nmemb, size_t size)
+{
+	printf("Testing ft_calloc with nmemb=%zu, size=%zu\n", nmemb, size);
+
+	// Test the ft_calloc function
+	void *result = ft_calloc(nmemb, size);
+
+	if (result == NULL)
+	{
+		printf("Memory allocation failed.\n");
+		return;
+	}
+
+	// Verify that the allocated memory is initialized to zero
+	unsigned char *ptr = (unsigned char *)result;
+	size_t i;
+	for (i = 0; i < nmemb * size; ++i)
+	{
+		if (ptr[i] != 0)
+		{
+			printf("Error: Memory not initialized to zero at index %zu.\n", i);
+			free(result);
+			return;
+		}
+	}
+
+	printf("Memory allocation and initialization successful.\n");
+
+	// Don't forget to free the allocated memory
+	free(result);
+}
+
+int main(int argc, char *argv[])
 {
 	if (argc < 3)
 	{
-		printf ("At least 3 parameter needed");
+		printf("At least 3 parameter needed");
 		return (0);
 	}
 
-	//ISALPHA
+	// ISALPHA
 	printf("___\nISALPHA test:\n");
 	printf("My solution:\n%i\n", ft_isalpha(*argv[1]));
 	printf("Standart library:\n%i\n\n", isalpha(*argv[1]));
 
-	//ISDIGIT
+	// ISDIGIT
 	printf("___\nISDIGIT test:\n");
 	printf("My solution:\n%i\n", ft_isdigit(*argv[1]));
 	printf("Standart library:\n%i\n\n", isdigit(*argv[1]));
 
-	//ISALNUM
+	// ISALNUM
 	printf("___\nISALNUM test:\n");
 	printf("My solution:\n%i\n", ft_isalnum(*argv[1]));
 	printf("Standart library:\n%i\n\n", isalnum(*argv[1]));
 
-	//ISASCII
+	// ISASCII
 	printf("___\nISASCII test:\n");
 	printf("My solution:\n%i\n", ft_isascii(*argv[1]));
 	printf("Standart library:\n%i\n\n", isascii(*argv[1]));
 
-	//ISPRINT
+	// ISPRINT
 	printf("___\nISPRINT test:\n");
 	printf("My solution:\n%i\n", ft_isprint(288));
 	printf("Standart library:\n%i\n\n", isprint(288));
 
-	//STRLEN
+	// STRLEN
 	printf("___\nSTRLEN test:\n");
 	printf("My solution:\n%lu\n", ft_strlen(argv[1]));
 	printf("Standart library:\n%lu\n\n", strlen(argv[1]));
 
-	//MEMSET
-	char	test[] = "some string";
-	char	test1[] = "some string";
+	// MEMSET
+	char test[] = "some string";
+	char test1[] = "some string";
 	printf("___\nMEMSET test:\n");
 	printf("My solution:\n");
 	printf("Before change:\n");
@@ -65,9 +144,9 @@ int	main(int argc, char *argv[])
 	printf("%s ", test1);
 	printf("\n\n");
 
-	//BZERO
-	char	test2[] = "some string";
-	char	test3[] = "some string";
+	// BZERO
+	char test2[] = "some string";
+	char test3[] = "some string";
 	printf("___\nBZERO test:\n");
 	printf("My solution:\n");
 	printf("Before change:\n");
@@ -86,12 +165,12 @@ int	main(int argc, char *argv[])
 	printf("%s ", test3);
 	printf("\n\n");
 
-	//MEMCPY
+	// MEMCPY
 
-	char	test4[] = "some string";
-	char	test6[11];
-	char	test5[] = "some string";
-	char	test7[11];
+	char test4[] = "some string";
+	char test6[11];
+	char test5[] = "some string";
+	char test7[11];
 	printf("___\nMEMCPY test:\n");
 	printf("My solution:\n");
 	printf("%s - ", test4);
@@ -104,12 +183,12 @@ int	main(int argc, char *argv[])
 	printf("%s", test7);
 	printf("\n\n");
 
-	//MEMMOVE
+	// MEMMOVE
 
-	char	test8[] = "some string";
-	char	test9[11];
-	char	test10[] = "some string";
-	char	test11[11];
+	char test8[] = "some string";
+	char test9[11];
+	char test10[] = "some string";
+	char test11[11];
 	printf("___\nMEMMOVE test:\n");
 	printf("My solution:\n");
 	printf("%s - ", test8);
@@ -122,14 +201,12 @@ int	main(int argc, char *argv[])
 	printf("%s", test11);
 	printf("\n\n");
 
+	// STRLCPY
 
-
-	//STRLCPY
-
-	char	test12[] = "some string";
-	char	test13[11];
-	char	test14[] = "some string";
-	char	test15[11];
+	char test12[] = "some string";
+	char test13[11];
+	char test14[] = "some string";
+	char test15[11];
 	printf("___\nSTRLCPY test:\n");
 	printf("My solution:\n");
 	printf("%s\n", test12);
@@ -142,11 +219,11 @@ int	main(int argc, char *argv[])
 	printf("%s", test15);
 	printf("\n\n");
 
-	//STRLCAT
-	char	test16[] = "slorem ipsum dolor sit amet";
-	char	test17[10] = "aaaaaaaaaa";
-	char	test18[] = "lorem ipsum dolor sit amet";
-	char	test19[10] = "aaaaaaaaaa";
+	// STRLCAT
+	char test16[] = "slorem ipsum dolor sit amet";
+	char test17[10] = "aaaaaaaaaa";
+	char test18[] = "lorem ipsum dolor sit amet";
+	char test19[10] = "aaaaaaaaaa";
 	printf("___\nSTRLCAT test:\n");
 	printf("My solution:\n");
 	printf("%s\n", test16);
@@ -159,79 +236,152 @@ int	main(int argc, char *argv[])
 	printf("%s", test19);
 	printf("\n\n");
 
-	//TOUPPER
+	// TOUPPER
 	printf("___\nTOUPPER test:\n");
 	printf("My solution:\n%c\n", ft_toupper(*argv[1]));
 	printf("Standart library:\n%c\n\n", toupper(*argv[1]));
 
-	//TOLOWER
+	// TOLOWER
 	printf("___\nTOLOWER test:\n");
 	printf("My solution:\n%c\n", ft_tolower(*argv[1]));
 	printf("Standart library:\n%c\n\n", tolower(*argv[1]));
 
-	//STRCHR
+	// STRCHR
 	printf("___\nSTRCHR test:\n");
 	printf("My solution:\n%s\n", ft_strchr(argv[1], *argv[2]));
 	printf("Standart library:\n%s\n\n", strchr(argv[1], *argv[2]));
 
-	//STRRCHR
+	// STRRCHR
 	printf("___\nSTRRCHR test:\n");
 	printf("My solution:\n%s\n", ft_strrchr(argv[1], *argv[2]));
 	printf("Standart library:\n%s\n\n", strrchr(argv[1], *argv[2]));
 	printf("My solution:\n%s\n", ft_strrchr("123456789", 'a'));
 	printf("Standart library:\n%s\n\n", strrchr("123456789", 'a'));
 
-	//STRNCMP
+	// STRNCMP
 	printf("___\nSTRNCMP test:\n");
 	printf("My solution:\n%d\n", ft_strncmp("test\200", "test\0", 6));
 	printf("Standart library:\n%d\n\n", strncmp("test\200", "test\0", 6));
 
-	//MEMCHR
+	// MEMCHR
 	printf("___\nMEMCHR test:\n");
 	printf("My solution:\n%s\n", (unsigned char *)ft_memchr(argv[1], *argv[2], 3));
 	printf("Standart library:\n%s\n\n", (unsigned char *)memchr(argv[1], *argv[2], 3));
 
-	//MEMCMP
+	// MEMCMP
 	printf("___\nMEMCMP test:\n");
 	printf("My solution:\n%i\n", ft_memcmp("abcdefghij", "abcdefgxyz", 7));
 	printf("Standart library:\n%i\n\n", memcmp("abcdefghij", "abcdefgxyz", 7));
 
-	//STRNSTR
+	// STRNSTR
 	printf("___\nSTRNSTR test:\n");
 	// printf("My solution:\n%s\n", ft_strnstr("lorem ipsum dolor sit amet", "ipsum", 15));
 	// printf("Standart library:\n%s\n\n", strnstr("lorem ipsum dolor sit amet", "ipsum", 15));
 	printf("My solution:\n%s\n", ft_strnstr("lorem ipsum dolor sit amet", "dolor", 15));
-	printf("Standart library:\n%s\n\n", strnstr("lorem ipsum dolor sit amet", "dolor", 15));
+	// printf("Standart library:\n%s\n\n", strnstr("lorem ipsum dolor sit amet", "dolor", 15));
 
-	//ATOI
+	// ATOI
 	printf("___\nATOI test:\n");
 	printf("My solution:\n%i\n", ft_atoi(argv[1]));
 	printf("Standart library:\n%i\n\n", atoi(argv[1]));
 
-	//STRJOIN
+	// CALLOC
+	printf("___\nCALLOC test:\n");
+	int *arr = (int *)ft_calloc(5, sizeof(int));
+	int i;
+	i = 0;
+	while (i < 5)
+	{
+		printf("%i: %c", i, arr[i]);
+		i++;
+	}
+	free(arr);
+	printf("\n\n");
+
+	// STRDUP
+	printf("___\nSTRDUP test:\n");
+	char *originalStr = "Hello, World!";
+	char *copiedStr = ft_strdup(originalStr);
+	printf("Orginial string: %s\nCopied string: %s\n\n", originalStr, copiedStr);
+	free(copiedStr);
+
+	// SUBSTR
+	printf("___\nSUBSTR test:\n");
+	char *result4 = ft_substr("12345", 2, 2);
+	printf("%s\n\n", result4);
+	free(result4);
+	// SUBSTR
+	printf("___\nSUBSTR test:\n");
+	printf("%s\n\n", ft_substr("", 1, 1));
+	// STRJOIN
 	printf("___\nSTRJOIN test:\n");
 	printf("My solution:\n%s\n", ft_strjoin("lorem ipsum", "dolor sit amet"));
 
-	//SPLIT
+	// TRIM
+	printf("___\nTRIM test:\n");
+	printf("%s\n\n", ft_strtrim("testing", "tg"));
+
+	// SPLIT
 	printf("___\nSTRJOIN test:\n");
 	char **ptr;
 	ptr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. ", ' ');
 	while (*ptr)
 		printf("%s\n", *ptr++);
 
-	//ITOA
+	// ITOA
 	printf("___\nITOA test:\n");
 	printf("%s\n\n", ft_itoa(ft_atoi(argv[1])));
 
-	//SUBSTR
-	printf("___\nSUBSTR test:\n");
-	printf("%s\n\n", ft_substr("", 1, 1));
+	// STRMAPI
+	printf("___\nSTRMAPI test:\n");
+	printf("BEFORE: test text\n");
+	printf("AFTER: %s\n\n", ft_strmapi("test text", simpleMappingFunction));
 
-	//TRIM
-	printf("___\nTRIM test:\n");
-	printf("%s\n\n", ft_strtrim("", ""));
+	// STRITERI
+	printf("___\nSTRITERI test:\n");
+	char str1[] = "abcd";
+	printf("BEFORE: %s\n", str1);
+	ft_striteri(str1, simpleIterationFunction);
+	printf("AFTER: %s\n\n", str1);
 
+	// PUTCHAR_FD
+	printf("___\nPUTCHAR_FD test:\n");
+	ft_putchar_fd('A', 1);
+	ft_putchar_fd('\n', 1);
+	ft_putchar_fd('E', 2);
+	ft_putchar_fd('\n', 1);
 
+	// PUTSTR_FD
+	printf("___\nPUTSTR_FD test:\n");
+	ft_putstr_fd("test string\n\n", 1);
 
-	return(0);
+	// PUTENDL_FD
+	printf("___\nPUTENDL_FD test:\n");
+	ft_putendl_fd("test string\n", 1);
+
+	// PUTNBR_FD
+	printf("___\nPUTNBR_FD test:\n");
+	ft_putnbr_fd(42, 1);
+	ft_putchar_fd('\n', 1);
+
+	// LSTMAP
+	printf("___\nLSTMAP test:\n");
+	printf("ORIGINAL:\nhello\n");
+	// Test Case 1: Map an empty list
+	t_list *emptyList = NULL;
+	t_list *result1 = ft_lstmap(emptyList, mapFunction, deleteFunction);
+	printf("ft_lstmap Test Case 1:\n %s\n", (char *)result1);
+
+	// Test Case 2: Map a non-empty list
+	t_list *list = ft_lstnew(ft_strdup("hello"));
+	ft_lstadd_back(&list, ft_lstnew(ft_strdup("world")));
+	t_list *result2 = ft_lstmap(list, mapFunction, deleteFunction);
+
+	// Check if the mapping worked correctly (e.g., strings are doubled)
+	printf("ft_lstmap Test Case 2:\n %s\n\n", (char *)result2->content);
+
+	// Clean up the mapped list
+	ft_lstclear(&result2, deleteFunction);
+
+	return (0);
 }

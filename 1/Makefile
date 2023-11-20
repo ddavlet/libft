@@ -19,19 +19,23 @@ OBJ_BONUS :=  $(SRC_BONUS:%.c=%.o)
 
 all: $(NAME)
 
-$(NAME):
-	$(CC) $(FLAGS) $(OPTION) $(INC_DIR) $(SRC)
+$(NAME): $(OBJ)
 	$(AR) $(NAME) $(OBJ)
 	$(RANNAME)
 
+bonus:  $(OBJ) $(OBJ_BONUS)
+	$(AR) $(NAME) $(OBJ) $(OBJ_BONUS)
+	$(RANNAME)
+
+%.o: %.c
+	$(CC) $(FLAGS) $(OPTION) $(INC_DIR) $< -o $@
+
 clean:
-		$(RM) $(OBJ)
+		$(RM) $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
 		$(RM) $(NAME)
 
 re: fclean all
 
-bonus: $(OBJ) $(OBJ_BONUS)
-	$(AR) $(NAME) $(OBJ) $(OBJ_BONUS)
-	$(RANNAME)
+# $(CC) $(FLAGS) $(OPTION) $(INC_DIR)
