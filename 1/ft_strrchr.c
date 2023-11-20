@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:27:32 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/20 11:16:33 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/20 11:21:47 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ char	*ft_strrchr(const char *s, int c)
 	while (s[i])
 	{
 		if ((char)s[i] == (char)c)
-			ptr = (char *)s;
+			ptr = (char *)&s[i];
 		i++;
 	}
 	if (s[i] == (char)c)
-		ptr = (char *)s;
+		ptr = (char *)&s[i];
 	return (ptr);
 }

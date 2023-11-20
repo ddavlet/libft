@@ -35,8 +35,10 @@ fclean: clean
 
 re: fclean all
 
-# bonus: $(NAME)
+bonus: $(NAME)
 
-# $(NAME):
-# 		$(CC) $(FLAGS) $(OPTION) $(SRC) $(SRC_BONUS)
-# 		$(AR) $(NAME) $(OBJ) $(OBJ_BONUS)
+$(NAME):
+		$(NAME):
+	$(CC) $(FLAGS) $(OPTION) $(INC_DIR) $(SRC) $(SRC_BONUS)
+	$(AR) $(NAME) $(OBJ) $(OBJ_BONUS)
+	$(RANNAME)
