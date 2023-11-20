@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:10:26 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/20 10:10:48 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/20 11:18:06 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	int		i;
 	t_list	*tmp;
 
 	i = 0;
@@ -24,5 +24,5 @@ int	ft_lstsize(t_list *lst)
 		tmp = tmp->next;
 		i++;
 	}
-	return	(i);
+	return (i);
 }

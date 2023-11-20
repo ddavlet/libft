@@ -6,13 +6,13 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:23:09 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/20 10:23:09 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/20 11:18:23 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 include "libft.h"
 
-void ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	unsigned int	i;
 
