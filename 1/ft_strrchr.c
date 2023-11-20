@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:27:32 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/20 12:17:23 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/20 12:18:12 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	unsigned int	i;
-	unsigned cha	j;
+	unsigned char	j;
 
 	j = (unsigned char)c;
 	i = ft_strlen(s);
@@ -25,5 +25,5 @@ char	*ft_strrchr(const char *s, int c)
 			return ((char *)&s[i]);
 		i--;
 	}
-	return (0)
+	return (0);
 }
