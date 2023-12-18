@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 14:01:23 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/18 15:07:20 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/12/18 11:45:54 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,13 @@ static unsigned int	ft_counter(char const *s, char c)
 	return (i);
 }
 
-static void	ft_free_all(char **ptr)
+static void	ft_free_all(char **ptr, int n)
 {
-	while (*ptr)
-		free(*ptr);
-	free (*ptr);
+	while (n > -1)
+	{
+		free(*ptr++);
+		n--;
+	}
 	free (ptr);
 }
 
@@ -65,7 +67,7 @@ char	**ft_split(char const *s, char c)
 		{
 			split[word] = ft_substr(s, 0, ft_count_len(s, c));
 			if (!split[word])
-				ft_free_all(split);
+				ft_free_all(split, word);
 			word++;
 			s += (ft_count_len(s, c) - 1);
 		}
