@@ -23,13 +23,15 @@ static int	ft_isspace(int c)
 static int	check_beyond_int(int nbr, char n, int sign)
 {
 	if (sign == 1)
-		if (nbr > 2147483647 / 10
-			|| (nbr == 2147483647 / 10 && n - '0' > 2147483647 % 10))
+	{
+		if (nbr == 214748364 && n - '0' > 7)
 			return (2147483647);
-	if (sign == -1)
-		if (nbr > -(-2147483648 / 10)
-			|| (nbr == -(-2147483648 / 10) && n - '0' > -2147483648 % 10))
+	}
+	else if (sign == -1)
+	{
+		if (nbr == 214748364 && n - '0' > 8)
 			return (-2147483648);
+	}
 	return (0);
 }
 
