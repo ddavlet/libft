@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_hex_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 18:08:17 by ddavlety          #+#    #+#             */
-/*   Updated: 2024/01/11 09:10:43 by ddavlety         ###   ########.fr       */
+/*   Created: 2024/01/11 09:11:12 by ddavlety          #+#    #+#             */
+/*   Updated: 2024/01/11 09:12:49 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_hex_fd(unsigned int num, char base, int fd)
 {
-	int	i;
+	unsigned int	remainder;
+	int				i;
 
-	i = 0;
-	if (n == INT_MIN)
-		return (ft_putstr_pf("-2147483648", fd));
-	if (n == 0)
-		return (ft_putchar_pf('0', fd));
-	if (n < 0)
-	{
-		ft_putchar_pf('-', fd);
-		n *= -1;
-		i++;
-	}
-	if (n >= 10)
-		i += ft_putnbr_pf(n / 10, fd);
-	i += ft_putchar_pf(n % 10 + 48, fd);
+	remainder = 0;
+	i = 1;
+	if (num >= 16)
+		i += ft_putnbr_hex_fd(num / 16, base, fd);
+	remainder = num % 16;
+	if (remainder < 10)
+		ft_putchar_pf('0' + remainder, fd);
+	else
+		ft_putchar_pf(base + remainder - 10, fd);
 	return (i);
 }
