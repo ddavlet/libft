@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 16:31:10 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/17 13:57:00 by ddavlety         ###   ########.fr       */
+/*   Updated: 2024/01/14 14:41:02 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strdup(const char *s)
 	j = 0;
 	ptr = (char *)malloc((i +1) * sizeof(char));
 	if (!ptr)
-		return (0);
+		return (NULL);
 	while (j <= i)
 	{
 		ptr[j] = s[j];

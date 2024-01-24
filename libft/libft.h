@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:27:43 by ddavlety          #+#    #+#             */
-/*   Updated: 2024/01/11 09:21:19 by ddavlety         ###   ########.fr       */
+/*   Updated: 2024/01/15 10:28:10 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
+
 
 typedef struct s_list
 {
@@ -125,5 +126,9 @@ int		ft_lstsize(t_list *lst);
 int		ft_printf(const char *txt, ...);
 
 char	*get_next_line(int fd);
+
+int		ft_atoi_binar(const char *nptr, int i);
+
+size_t	ft_lstlen(t_list **list);
 
 #endif

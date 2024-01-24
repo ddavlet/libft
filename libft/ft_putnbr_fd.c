@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 18:08:17 by ddavlety          #+#    #+#             */
-/*   Updated: 2024/01/11 09:10:43 by ddavlety         ###   ########.fr       */
+/*   Updated: 2024/01/11 09:26:41 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ int	ft_putnbr_fd(int n, int fd)
 
 	i = 0;
 	if (n == INT_MIN)
-		return (ft_putstr_pf("-2147483648", fd));
+		return (ft_putstr_fd("-2147483648", fd));
 	if (n == 0)
-		return (ft_putchar_pf('0', fd));
+		return (ft_putchar_fd('0', fd));
 	if (n < 0)
 	{
-		ft_putchar_pf('-', fd);
+		ft_putchar_fd('-', fd);
 		n *= -1;
 		i++;
 	}
 	if (n >= 10)
-		i += ft_putnbr_pf(n / 10, fd);
-	i += ft_putchar_pf(n % 10 + 48, fd);
+		i += ft_putnbr_fd(n / 10, fd);
+	i += ft_putchar_fd(n % 10 + 48, fd);
 	return (i);
 }

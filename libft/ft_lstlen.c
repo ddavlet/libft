@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunsnbr_fd.c                                  :+:      :+:    :+:   */
+/*   ft_lstlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/11 09:08:11 by ddavlety          #+#    #+#             */
-/*   Updated: 2024/01/11 09:27:11 by ddavlety         ###   ########.fr       */
+/*   Created: 2024/01/15 10:26:51 by ddavlety          #+#    #+#             */
+/*   Updated: 2024/01/15 10:26:59 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putunsnbr_fd(unsigned int n, int fd)
+size_t	ft_lstlen(t_list **list)
 {
-	int	i;
+	size_t	i;
+	t_list	*tmp;
 
 	i = 0;
-	if (n >= 10)
-		i += ft_putunsnbr_fd(n / 10, fd);
-	i += ft_putchar_fd(n % 10 + 48, fd);
+	if (!*list)
+		return (i);
+	tmp = *list;
+	while (tmp)
+	{
+		i++;
+		tmp = tmp->next;
+	}
 	return (i);
 }

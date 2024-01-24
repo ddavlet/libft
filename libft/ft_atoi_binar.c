@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunsnbr_fd.c                                  :+:      :+:    :+:   */
+/*   ft_atoi_binar.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/11 09:08:11 by ddavlety          #+#    #+#             */
-/*   Updated: 2024/01/11 09:27:11 by ddavlety         ###   ########.fr       */
+/*   Created: 2024/01/11 19:25:17 by ddavlety          #+#    #+#             */
+/*   Updated: 2024/01/11 20:21:33 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putunsnbr_fd(unsigned int n, int fd)
+int	ft_atoi_binar(const char *nptr, int i)
 {
-	int	i;
+	int	nbr;
 
-	i = 0;
-	if (n >= 10)
-		i += ft_putunsnbr_fd(n / 10, fd);
-	i += ft_putchar_fd(n % 10 + 48, fd);
-	return (i);
+	nbr = 0;
+	while (i-- && *nptr)
+		nbr = nbr * 2 + (int)(*nptr++ - '0');
+	return (nbr);
 }
