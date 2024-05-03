@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_intarrdup.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 12:43:13 by ddavlety          #+#    #+#             */
-/*   Updated: 2024/04/18 14:49:27 by ddavlety         ###   ########.fr       */
+/*   Created: 2024/03/26 18:02:40 by ddavlety          #+#    #+#             */
+/*   Updated: 2024/04/18 14:48:36 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	*ft_intarrdup(int *arr)
 {
-	size_t	i;
+	int		*new_arr;
+	ssize_t	i;
 
-	i = 1;
-	if (n == 0)
-		return (0);
-	while (*s1 && i < n && *s1 == *s2)
-	{
+	i = 0;
+	while (arr[i])
 		i++;
-		s1++;
-		s2++;
-	}
-	return ((unsigned char)*s1 - (unsigned char) *s2);
+	new_arr = (int *)ft_calloc(sizeof(int), i + 1);
+	i = -1;
+	while (arr[++i])
+		new_arr[i] = arr[i];
+	return (new_arr);
 }

@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_free_ptr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 12:43:13 by ddavlety          #+#    #+#             */
-/*   Updated: 2024/04/18 14:49:27 by ddavlety         ###   ########.fr       */
+/*   Created: 2024/03/29 16:21:24 by ddavlety          #+#    #+#             */
+/*   Updated: 2024/03/29 16:25:52 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	*ft_free_ptr(void *ptr1, void *ptr2)
 {
-	size_t	i;
-
-	i = 1;
-	if (n == 0)
-		return (0);
-	while (*s1 && i < n && *s1 == *s2)
-	{
-		i++;
-		s1++;
-		s2++;
-	}
-	return ((unsigned char)*s1 - (unsigned char) *s2);
+	if (ptr1)
+		free(ptr1);
+	if (ptr2)
+		free(ptr2);
+	return (NULL);
 }
