@@ -1,4 +1,4 @@
-#include "./1/libft.h"
+#include "./libft/libft.h"
 
 #include <stdio.h>
 
@@ -138,7 +138,7 @@ int main(int argc, char *argv[])
 	printf("Standart library:\n");
 	printf("Before change:\n");
 	printf("%s ", test1);
-	memset(test1, 't', 3);
+	memset(test1, '0', 3);
 	printf("\n");
 	printf("After change:\n");
 	printf("%s ", test1);
@@ -312,30 +312,55 @@ int main(int argc, char *argv[])
 	free(result4);
 	// SUBSTR
 	printf("___\nSUBSTR test:\n");
-	printf("%s\n\n", ft_substr("", 1, 1));
+	{
+		char *tmp = ft_substr("this is substring", 0, 17);
+		printf("%s\n\n", tmp);
+		free(tmp);
+	}
 	// STRJOIN
 	printf("___\nSTRJOIN test:\n");
-	printf("My solution:\n%s\n", ft_strjoin("lorem ipsum", "dolor sit amet"));
+	{
+		char *ptr = ft_strjoin("lorem ipsum", " dolor sit amet");
+		printf("My solution:\n%s\n", ptr);
+		// for (size_t i = 0; ptr[i]; i++) { free(ptr[i]);	}
+		free(ptr);
+	}
 
 	// TRIM
 	printf("___\nTRIM test:\n");
-	printf("%s\n\n", ft_strtrim("testing", "tg"));
+	{
+		char *tmp = ft_strtrim("testing", "tg");
+		printf("%s\n\n", tmp);
+		free(tmp);
+	}
 
 	// SPLIT
-	printf("___\nSTRJOIN test:\n");
+	printf("___\nSPLIT test:\n");
 	char **ptr;
 	ptr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. ", ' ');
-	while (*ptr)
-		printf("%s\n", *ptr++);
-
+	for (int i = 0; ptr[i]; i++)
+	{
+		printf("%s\n", ptr[i]);
+		free(ptr[i]);
+	}
+	free(ptr);
 	// ITOA
 	printf("___\nITOA test:\n");
-	printf("%s\n\n", ft_itoa(ft_atoi(argv[1])));
+	{
+		char *tmp = ft_itoa(ft_atoi(argv[1]));
+		printf("%s\n\n", tmp);
+		free(tmp);
+	}
+
 
 	// STRMAPI
 	printf("___\nSTRMAPI test:\n");
 	printf("BEFORE: test text\n");
-	printf("AFTER: %s\n\n", ft_strmapi("test text", simpleMappingFunction));
+	{
+		char *tmp = ft_strmapi("test text", simpleMappingFunction);
+		printf("AFTER: %s\n\n", tmp);
+		free(tmp);
+	}
 
 	// STRITERI
 	printf("___\nSTRITERI test:\n");
@@ -376,12 +401,12 @@ int main(int argc, char *argv[])
 	t_list *list = ft_lstnew(ft_strdup("hello"));
 	ft_lstadd_back(&list, ft_lstnew(ft_strdup("world")));
 	t_list *result2 = ft_lstmap(list, mapFunction, deleteFunction);
-
 	// Check if the mapping worked correctly (e.g., strings are doubled)
-	printf("ft_lstmap Test Case 2:\n %s\n\n", (char *)result2->content);
+	printf("ft_lstmap Test Case 2:\n %p\n\n", (void *)result2->content);
 
 	// Clean up the mapped list
 	ft_lstclear(&result2, deleteFunction);
+	ft_lstclear(&list, deleteFunction);
 
 	return (0);
 }
