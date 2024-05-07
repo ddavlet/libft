@@ -220,7 +220,7 @@ int main(int argc, char *argv[])
 	printf("\n\n");
 
 	// STRLCAT
-	char test16[] = "slorem ipsum dolor sit amet";
+	char test16[] = "lorem ipsum dolor sit amet";
 	char test17[10] = "aaaaaaaaaa";
 	char test18[] = "lorem ipsum dolor sit amet";
 	char test19[10] = "aaaaaaaaaa";
