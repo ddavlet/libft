@@ -59,7 +59,7 @@ make
 ```
 This will generate the libft.a static library file, which can be linked with other C programs.
 
-Usage
+### Usage
 
 Once compiled, you can link the libft.a library with your programs as follows:
 
