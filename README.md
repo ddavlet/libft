@@ -9,9 +9,7 @@ Libft is a custom implementation of standard C library functions. This project i
 - [Compilation](#compilation)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
-
+  
 ## Overview
 
 Libft provides a set of C functions that replicate and expand upon standard C library functions, such as memory manipulation, string operations, and more. It is a foundational library for further projects at 42.
